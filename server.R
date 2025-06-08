@@ -51,7 +51,7 @@ shinyServer(function(input, output, session) {
 
 
     numericEnableVars_names <- vars_df() |>
-      filter(Tipo == "aNumérica", Habilitada == "Sim") |>
+      filter(Tipo == "Numérica", Habilitada == "Sim") |>
       pull(Nome)
 
   })
