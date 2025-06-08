@@ -7,6 +7,8 @@ library(readxl)
 library(quarto)
 library(rlang)
 
+Sys.setenv(QUARTO_PATH = "/usr/local/bin/quarto")
+
 conflict_prefer("select", "dplyr")
 conflict_prefer("filter", "dplyr")
 
