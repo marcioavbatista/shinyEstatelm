@@ -2,7 +2,7 @@ name: Deploy Shiny App
 
 on:
   push:
-    branches: [ main ]  # dispara quando você fizer push na main
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -16,6 +16,10 @@ jobs:
       uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Testar conexão SSH
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "echo Conexão SSH funcionando!"
 
     - name: Deploy via rsync
       run: |
